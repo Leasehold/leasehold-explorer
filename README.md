@@ -75,7 +75,7 @@ These programs and resources are required to install and run Lisk Explorer
 Clone the Lisk Explorer Repository:
 
 ```
-git clone https://github.com/LiskHQ/lisk-explorer.git
+git clone https://github.com/Leasehold/lisk-explorer.git
 cd lisk-explorer
 npm install
 ```
@@ -260,7 +260,7 @@ npm run e2e -s -- --specs=features/address.feature
 
 ## Contributors
 
-https://github.com/LiskHQ/lisk-explorer/graphs/contributors
+https://github.com/Leasehold/lisk-explorer/graphs/contributors
 
 ## License
 
