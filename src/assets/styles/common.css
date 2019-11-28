@@ -105,7 +105,7 @@ a:hover {
 }
 
 .text-muted {
-  color: #3c5068;
+  color: #647752;
 }
 
 /* Bootstrap fix for ui.bootstrap */
@@ -831,7 +831,7 @@ a.btn-pagination-inactive {
 
 /* Set the fixed height of the footer here */
 #footer {
-  background: #002449;
+  background: #81c341; 
   color: white;
   height: 48px;
   /*overflow: hidden;*/
