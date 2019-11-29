@@ -402,7 +402,7 @@ qrcode + span {
 }
 
 .nav-tabs>li>a {
-  color: #3c5068;
+  color: #647752;
 }
 
 .nav-tabs.nav-justified>.active>a,
@@ -467,7 +467,7 @@ qrcode + span {
 
 .nav-pagination>li>.curr-page{
   color: white;
-  background-color: #2475b9;
+  background-color: #81c341;
   border-radius: 5px;
 }
 
@@ -481,9 +481,9 @@ qrcode + span {
 }
 
 .btn-next,.btn-prev {
-  color: #2475b9;
+  color: #81c341;
   background-color: white;
-  border: solid 1px #2475b9;
+  border: solid 1px #81c341;
   align-items: center;
   display: inline-flex;
   justify-content: center;
@@ -497,7 +497,7 @@ qrcode + span {
 
 .btn-next:hover,.btn-prev:hover {
   color: #fff;
-  background-color: #2475b9;
+  background-color: #81c341;
 }
 
 a.btn-pagination-inactive {
@@ -741,7 +741,7 @@ a.btn-pagination-inactive {
 }
 
 .tx-pagination-num {
-  color: #2475b9;
+  color: #81c341;
   font-weight: bold;
 }
 
@@ -1241,7 +1241,7 @@ a.v_highlight_more {
 /* Sort Order */
 
 a.sort-order {
-  color: #3c5068;
+  color: #81c341;
 }
 
 a.sort-order:focus, .sort-order:hover {
@@ -1380,8 +1380,8 @@ table tbody tr:nth-of-type(odd) {
 .bordered-button:hover,
 .bordered-button {
   background: transparent;
-  border: solid 2px #2475b9;
-  color: #2475b9;
+  border: solid 2px #81c341;
+  color: #81c341;
   border-radius: 3px !important;
   line-height: 36px;
   width: 100%;
@@ -1406,10 +1406,12 @@ table tbody tr:nth-of-type(odd) {
 
 .bordered-button:hover {
   color: #fff;
-  background-color: #2475b9;
+  background-color: #81c341;
 }
 
-
+.text-primary {
+    color: #81c341;
+}
 
 /* Empty state of lists */
 .empty-state {
