@@ -39,8 +39,10 @@ config.lisk.apiPath = '/api';
 /**
  * FreeGeoIP server
  */
-config.freegeoip.host = process.env.FREEGEOIP_HOST || '127.0.0.1';
-config.freegeoip.port = process.env.FREEGEOIP_PORT || 8080;
+config.freegeoip.host = process.env.FREEGEOIP_HOST || 'api.ipstack.com';
+config.freegeoip.port = process.env.FREEGEOIP_PORT || 80;
+config.freegeoip.apikey = process.env.IPSTACK_APIKEY || 'aeb5be730f0da432c1f2e8dd440229d9';
+
 
 /**
  * Redis server
@@ -106,7 +108,7 @@ config.marketWatcher.orders.updateInterval = 15000;
  * Cache delegate info in order to replace address by username
  */
 // Delegate caching support (true - enabled, false - disabled)
-config.cacheDelegateAddress.enabled = true;
+config.cacheDelegateAddress.enabled = false;
 // Interval in ms for checking new delegates registration (default: 60 seconds)
 config.cacheDelegateAddress.updateInterval = 60000;
 
