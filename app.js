@@ -225,8 +225,8 @@ const getNodeConstants = () => new Promise((success, error) => {
 					epoch: new Date(body.data.epoch) / 1000,
 					protocolVersion: body.data.protocolVersion,
 					nethash: body.data.nethash,
-					majorVersion: body.data.version.split('.')[0],
-					minorVersion: body.data.version.split('.')[1],
+					//majorVersion: body.data.version.split('.')[0],
+					//minorVersion: body.data.version.split('.')[1],
 				});
 			}
 		}
