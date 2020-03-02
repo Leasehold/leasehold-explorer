@@ -13,11 +13,12 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
+const api = require('../lib/api');
 const logger = require('./logger');
 const request = require('request-promise');
 
 module.exports = function (app, config, client) {
-	const delegates = app.delegates;
+	const delegates = new api.delegates(app);
 
 	function KnownAddresses() {
 		this.latestDelegateRegisteredAt = -1;
@@ -89,7 +90,7 @@ module.exports = function (app, config, client) {
 				let knownAccounts;
 
 				(async () => {
-					try {
+					/*try {
 						logger.info('KnownAddresses:', `Loading known addresses from ${config.knownAccountsUrl}`);
 						knownNetworks = JSON.parse(await request(`${config.knownAccountsUrl}/networks.json`));
 						knownAccounts = JSON.parse(await request(`${config.knownAccountsUrl}/known_${knownNetworks[nethash]}.json`));
@@ -98,9 +99,15 @@ module.exports = function (app, config, client) {
 						knownNetworks = require('../knowledge/networks.json') || {};
 						// eslint-disable-next-line import/no-dynamic-require
 						//knownAccounts = require(`../knowledge/known_${knownNetworks[nethash]}.json`) || {};
-                                                knownAccounts = require(`../knowledge/known_mainnet.json`) || {};
-					}
-
+			 			knownAccounts = knownNetworks[nethash] ? require(`../knowledge/known_${knownNetworks[nethash]}.json`) : {};
+					}*/
+                      
+					logger.info('Loading known addresses from local copy');
+					knownNetworks = require('../knowledge/networks.json') || {};
+					// eslint-disable-next-line import/no-dynamic-require
+					//knownAccounts = require(`../knowledge/known_${knownNetworks[nethash]}.json`) || {};
+					knownAccounts = knownNetworks[nethash] ? require(`../knowledge/known_${knownNetworks[nethash]}.json`) : {};
+ 
 					Object.keys(knownAccounts).forEach((address) => {
 						client.hmset(`address:${address}`, knownAccounts[address]);
 					});

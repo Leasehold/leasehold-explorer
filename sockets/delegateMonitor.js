@@ -13,6 +13,7 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
+const api = require('../lib/api');
 const moment = require('moment');
 const async = require('async');
 const request = require('request');
@@ -20,7 +21,7 @@ const logger = require('../utils/logger');
 const SocketClient = require('../utils/socketClient');
 
 module.exports = function (app, connectionHandler, socket) {
-	const delegates = app.delegates;
+	const delegates = new api.delegates(app);
 	// eslint-disable-next-line no-unused-vars
 	const connection = new connectionHandler('Delegate Monitor:', socket, this);
 	const data = {};
@@ -265,7 +266,7 @@ module.exports = function (app, connectionHandler, socket) {
 		});
 	};
 
-	const getRound = height => Math.ceil(height / 101);
+	const getRound = height => Math.ceil(height / 39);
 
 	const getRoundDelegates = (nextForgers, height) => {
 		const currentRound = getRound(height);
@@ -363,22 +364,6 @@ module.exports = function (app, connectionHandler, socket) {
 				lastUpdateTime = getTimestamp();
 				emitData();
 				getLastBlocks(data.active);
-
-				function refreshDelegatesAtRoundStart() {
-					const currentHeight = data.lastBlock.block.height;
-					const roundStart = (getRound(currentHeight) - 1) * 101;
-					if (currentHeight === roundStart) {
-						log('debug', 'refresh delegates at round start');
-						delegates.loadAllDelegates((error) => {
-							if (error) {
-								log('error', `refresh delegates at round start failed: ${error}`);
-							} else {
-								log('debug', 'refresh delegates at round start finished sucessfully');
-							}
-						});
-					}
-				}
-				refreshDelegatesAtRoundStart();
 			};
 
 			socketClient.socket.on('blocks/change', sendUpdates);
@@ -391,3 +376,4 @@ module.exports = function (app, connectionHandler, socket) {
 		}
 	});
 };
+

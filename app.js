@@ -26,7 +26,7 @@ const logger = require('./utils/logger');
 const request = require('request');
 
 const app = express();
-const api = require('./lib/api');
+//const api = require('./lib/api');
 const utils = require('./utils');
 
 // process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 
 app.candles = new utils.candles(config, client);
 app.exchange = new utils.exchange(config);
-app.delegates = new api.delegates(app);
+//app.delegates = new api.delegates(app);
 app.knownAddresses = new utils.knownAddresses(app, config, client);
 app.orders = new utils.orders(config, client);
 
@@ -262,7 +262,7 @@ const startServer = (cb) => {
 
 				const io = require('socket.io').listen(server);
 				require('./sockets')(app, io);
-				app.delegates.loadAllDelegates();
+				//app.delegates.loadAllDelegates();
 				app.knownAddresses.load();
 				serverStatus = status.OK;
 			}

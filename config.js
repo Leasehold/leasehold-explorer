@@ -108,7 +108,7 @@ config.marketWatcher.orders.updateInterval = 15000;
  * Cache delegate info in order to replace address by username
  */
 // Delegate caching support (true - enabled, false - disabled)
-config.cacheDelegateAddress.enabled = false;
+config.cacheDelegateAddress.enabled = true;
 // Interval in ms for checking new delegates registration (default: 60 seconds)
 config.cacheDelegateAddress.updateInterval = 60000;
 
