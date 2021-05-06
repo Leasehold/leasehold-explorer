@@ -31,7 +31,7 @@ config.port = 443; // Port to listen on
 /**
  * LISK node
  */
-config.lisk.host = process.env.LISK_HOST || 'testnet.leasehold.io';
+config.lisk.host = process.env.LISK_HOST || 'mainnet.leasehold.io';
 config.lisk.port = process.env.LISK_PORT || 443;
 config.lisk.http = process.env.LISK_HTTP || 'https';
 config.lisk.apiPath = '/api';
@@ -60,7 +60,7 @@ config.log.enabled = true;
 // Output for logs - can be device file or ordinary path
 config.log.output = ['./logs/explorer.log'];
 // Log level - (trace, debug, info, warn, error)
-config.log.level = 'debug';
+config.log.level = 'info';
 
 /**
  * Header price tickers, Currency switcher

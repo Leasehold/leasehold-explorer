@@ -83,7 +83,8 @@
 		<div class="container fadein">
 			<div class="flex-container">
 				<span class="height"><b>Height:</b> {{blockStatus.height | number:0}}</span>
-				<span class="supply"><b>Supply:</b> {{blockStatus.supply | lisk | number:0}}</span>
+				<!-- <span class="supply"><b>Supply:</b> {{blockStatus.supply | lisk | number:0}}</span> -->
+				<span class="supply"><b>Supply:</b> 17,263,985.6284</span>
 				<span class="lisk-btc"><b>LSH/BTC:</b> {{currency.tickers.LSK.BTC || 'N/A'}}</span>
 				<span class="lisk-usd"><b>LSH/{{currency.tickers.LSH[currency.symbol] && currency.symbol !== 'BTC' ? currency.symbol : 'USD'}}:</b> {{currency.tickers.LSH[currency.symbol] && currency.symbol !== 'BTC' ? (currency.tickers.LSH[currency.symbol] | number:4) : (currency.tickers.LSK.USD | number:4) || 'N/A'}}</span>
 			</div>

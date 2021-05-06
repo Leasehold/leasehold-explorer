@@ -52,12 +52,6 @@ if (program.redisPort) {
 }
 const client = require('./redis')(config);
 
-app.locals.redis = client;
-app.use((req, res, next) => {
-	req.redis = client;
-	return next();
-});
-
 app.candles = new utils.candles(config, client);
 app.exchange = new utils.exchange(config);
 //app.delegates = new api.delegates(app);
@@ -99,6 +93,12 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.locals.redis = client;
+app.use((req, res, next) => {
+        req.redis = client;
+        return next();
+});
 
 const morgan = require('morgan');
 
